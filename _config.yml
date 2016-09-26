@@ -29,3 +29,5 @@ markdown: kramdown
 theme: minima
 # from https://jekyllrb.com/docs/continuous-integration/
 exclude: [vendor]
+# from http://jmcglone.com/guides/github-pages/
+#permalink: /blog/:year/:month/:day/:title
