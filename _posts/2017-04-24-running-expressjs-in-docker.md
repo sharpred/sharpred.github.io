@@ -68,7 +68,7 @@ Go to localhost:3000 in your browser of choice.  You should see ![standard Expre
 
 Assuming you were able to successfully run the sample app locally we can now look to “dockerize” it.
 
-These instructions can be found in full at https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
+These instructions can be found in full at <https://nodejs.org/en/docs/guides/nodejs-docker-webapp/>
 
 
 Create a file in the root of the project called Dockerfile
@@ -143,7 +143,7 @@ stop the container using `docker-compose down`
 ### Add some redis
 
 A basic intro on using redis with node.js can be found at
-https://www.sitepoint.com/using-redis-node-js/
+<https://www.sitepoint.com/using-redis-node-js/>
 
 modify your docker-compose file to look like
 ```
@@ -166,7 +166,7 @@ services:
 ```
 
 More on Docker-Compose at
-https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file
+<https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file>
 
 add some redis code to your app.js file.  After the line `var app = express()` add
 ```
