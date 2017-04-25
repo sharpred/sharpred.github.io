@@ -62,7 +62,7 @@ If all of these work ok you should be able to run `docker-images` to see a list 
 
 The simplest way to create an express.js app is to use the express application generator.  Run `npm install express-generator -g` and then run `express --view=hbs MyDockerExpressApp` you will then be prompted to install dependencies `cd MyDockerExpressApp && npm install` and to run the app `DEBUG=mydockerexpressapp:* npm start`
 
-Go to localhost:3000 in your browser of choice.  You should see the ![standard Express.js landing page](/images/expresswithdocker.png)
+Go to localhost:3000 in your browser of choice.  You should see ![standard Express.js landing page](/images/expresswithdocker.png)
 
 ### Dockerize Your Express.js App and Run Locally Inside Your Docker Container
 
