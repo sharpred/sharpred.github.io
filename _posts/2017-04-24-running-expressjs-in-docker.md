@@ -7,15 +7,20 @@ date: 2017-04-24
 
 This article will take you through the process of creating and running an Express.js web application in a Docker container on a Mac.  This article is now out of date and needs updating.
 
-# Steps
+## Steps
 
 We will run through the following steps;
-1. run Docker on your local system
-2. create a simple express.js app and run locally on mac host
-3. dockerize your express.js app and run locally inside your docker container
-4. add some docker orchestration
-5. what next?
 
+
+1. run Docker on your local system
+
+1. create a simple express.js app and run locally on mac host
+
+1. dockerize your express.js app and run locally inside your docker container
+
+1. add some docker orchestration
+
+1. what next?
 
 ## Run Docker on Your Local System
 
@@ -25,21 +30,15 @@ run the following to confirm what versions of software you are running;
 
 `docker —version`
 
-
 you should see something like `1.12.5, build 7392c3b`
-
 
 `docker-compose —version`
 
-
 you should see something like `1.11.2, build dfed245`
-
 
 `docker-machine —version`
 
-
 you should see something like `0.8.2, build e18a919`
-
 
 See <https://docs.docker.com/docker-for-mac/> for details on how to set up your mac for Docker if you have problems with any of the above commands.
 
@@ -49,12 +48,9 @@ Run the following commands;
 
 `docker-machine restart`
 
-
 `docker-machine env`
 
-
 `eval $(docker-machine env default)`
-
 
 If all of these work ok you should be able to run `docker-images` to see a list of installed images and `docker ps` to see a list of running containers (will probably be empty)
 
@@ -70,11 +66,10 @@ Assuming you were able to successfully run the sample app locally we can now loo
 
 These instructions can be found in full at <https://nodejs.org/en/docs/guides/nodejs-docker-webapp/>
 
-
 Create a file in the root of the project called Dockerfile
 paste the following into your file
 
-```
+```docker
 #the latest LTS (long term support) version boron of node available from the Docker Hub
 FROM node:boron
 # Create app directory
@@ -91,16 +86,14 @@ EXPOSE 3000
 CMD [ "npm", "start" ]
 ```
 
-
 Create a file .dockerignore file in the same directory and add the following content;
 
-```
+```bash
 node_modules
 npm-debug.log
 ```
 
 From the project root we are now ready to build our image.  The -t flag lets you tag the image so that it is easier to find with the docker images command `docker build -t <your username>/node-web-app`
-
 
 run `docker images` to see your new image (you will also see the node boron image you specified in your Dockerfile)
 
@@ -118,10 +111,12 @@ check the container IP address by typing `docker-machine ip default` this will r
 test your site is running.  Either visit 192.168.99.100:49160 in a browser or use `curl -i 192.168.99.100:49160`
 
 ### Add Some Docker Composition
+
 first kill of your running container using `docker kill pid`
 
 create a file called docker-compose.yml and paste in the following
-```
+
+```docker
 version: '2'
 services:
   web:
@@ -132,13 +127,11 @@ services:
      - .:/usr/src/app/
 ```
 
-
 start the composed docker file as a daemon `docker-compose -f docker-compose.yml up --build -d`
 
 check that the container is running using `docker-compose ps`
 
 stop the container using `docker-compose down`
-
 
 ### Add some redis
 
@@ -146,7 +139,8 @@ A basic intro on using redis with node.js can be found at
 <https://www.sitepoint.com/using-redis-node-js/>
 
 modify your docker-compose file to look like
-```
+
+```docker
 version: '2'
 services:
   redis:
@@ -169,6 +163,7 @@ More on Docker-Compose at
 <https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file>
 
 add some redis code to your app.js file.  After the line `var app = express()` add
+
 ```
 var redis = require('redis');
 //note the hostname redis must agree with the name of the service in your docker-compose.yml file
@@ -187,4 +182,5 @@ client.get('message',function(err, reply) {
 run `docker-compose restart` and then run `docker-compose logs` and you should see the initialisation of redis followed by the read/write being logged to the console
 
 ### What Next?
+
 automatic updating and remote debugging are obvious candidates for building on this. I will expand on these topics in future blogs.
