@@ -11,6 +11,7 @@ This article will take you through the process of creating and running an Expres
 
 We will run through the following steps;
 
+
 1. run Docker on your local system
 
 1. create a simple express.js app and run locally on mac host
