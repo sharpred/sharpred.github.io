@@ -5,7 +5,7 @@ date: 2017-04-24
 ---
 # Introduction
 
-This article will take you through the process of creating and running an Express.js web application in a Docker container on a Mac.
+This article will take you through the process of creating and running an Express.js web application in a Docker container on a Mac.  This article is now out of date and needs updating.
 
 ## Steps
 
