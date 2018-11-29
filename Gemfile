@@ -11,7 +11,7 @@ ruby RUBY_VERSION
 # Happy Jekylling!
 gem "jekyll"
 gem "jekyll-redirect-from"
-
+gem "github-pages"
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 gem "minima"
 gem "html-proofer"
