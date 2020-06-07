@@ -9,7 +9,7 @@ date: 2020-06-07
 
 There are lots of different options for running a CI/CD Server, you can use what I would describe as third party "generalist" services like [Circle CI](https://circleci.com/) or [Travis CI](https://travis-ci.org/), or you can use services that specialise in a specific type of build.  In my line of work (mobile app development) the specialist services would include the likes of [BuddyBuild](https://www.buddybuild.com/) or [CodeMagic](https://codemagic.io/start/) for building iOS and Flutter applications respectively.  
 
-I am going to start this section of my blog by talking about the CICD server that I have the most experience of, namely, GoCD Server from ThoughtWorks Inc. (https://www.gocd.org/)
+I am going to start this section of my blog by talking about the CICD server that I have the most experience of, namely, [GoCD Server from ThoughtWorks Inc.](https://www.gocd.org/)
 
 **Setting Things Up**
 
@@ -56,6 +56,8 @@ Successfully built 557ebecbe42e
 Successfully tagged mygocdimage:latest
 ```
 
+**Running the Server**
+
 You can now run your GoCD Server by typing `docker run -d -p8153:8153 mygocdimage` wait a couple of minutes and then type `docker ps -a` to check that your container is running.  You should see something like
 
 ```
@@ -68,4 +70,10 @@ Upon visiting the landing page http://localhost:8153 in your browser you should 
 
 ![this screenshot](/images/gocdserver001.png)
 
+**Finishing Off**
+
 To shutdown the GoCD server, Run `docker stop CONTAINERID` where CONTAINERID is the id returned from `docker ps -a` as executed previously.
+
+**Next Time**
+
+My next post will cover building and running GoCD agents, take a look at how we can secure sensitive data in our deployments and start to look at carrying out status checks, running integration tests and deploying applications using agents.
