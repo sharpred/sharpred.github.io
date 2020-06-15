@@ -81,3 +81,7 @@ gocd_gocdserver_1   /docker-entrypoint.sh   Up      0.0.0.0:8153->8153/tcp, 0.0.
 Your server should be accessible from http://localhost:8153.
 
 To close the server, run `docker-compose down`
+
+**Next Time**
+
+Next time we will look at adding a GOCD agent to our composer service configuration and accessing the server from the outside world using [ngrok](https://ngrok.com/).
