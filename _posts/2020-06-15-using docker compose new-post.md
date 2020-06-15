@@ -78,6 +78,6 @@ Wait a few seconds and type `docker-compose ps` and you should see something lik
 gocd_gocdserver_1   /docker-entrypoint.sh   Up      0.0.0.0:8153->8153/tcp, 0.0.0.0:8154->8154/tcp
 ```
 
-Your server should be accessible from <http://localhost:8153>, at this point a call to <https://localhost:8154> will result in a browser error. We will look at how to fix that in a future post.
+Your server should be accessible from http://localhost:8153.
 
 To close the server, run `docker-compose down`
