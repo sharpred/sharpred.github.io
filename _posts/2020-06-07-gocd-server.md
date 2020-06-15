@@ -76,4 +76,4 @@ To shutdown the GoCD server, Run `docker stop CONTAINERID` where CONTAINERID is 
 
 **Next Time**
 
-My next post will cover building and running GoCD agents, take a look at how we can secure sensitive data in our deployments and start to look at carrying out status checks, running integration tests and deploying applications using agents.
+My next post will look at cover creating pipelines and executing pipeline jobs and we will look at Docker Compose, a tool for defining and running multi-container Docker applications.
