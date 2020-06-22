@@ -84,4 +84,4 @@ To close the server, run `docker-compose down`
 
 **Next Time**
 
-Next time we will look at adding a GOCD agent to our composer service configuration and accessing the server from the outside world using [ngrok](https://ngrok.com/).
+Next time we will look at adding a GOCD agent to our composer service configuration.
