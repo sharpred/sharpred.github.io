@@ -43,7 +43,7 @@ FROM gocd/gocd-agent-ubuntu-18.04:v20.4.0
 ENV GO_SERVER_URL=http://gocdserver:8153/go
 ```
 
-The `FROM` property specifies the location of the Docker image we want to use on the Docker image repository. The `ENV` command will add an environment variable to our resultant Docker container when we build it and specifies where the GoCD agent will find the required GoCD server.
+The `FROM` property specifies the location of the Docker image we want to use on the Docker image repository. The `ENV` command will add an environment variable to our resultant Docker container when we build it and specifies where the GoCD agent will find the required GoCD server. Note that the host name `gocdserver` equates to the service name defined in your Docker Compose file.
 
 We now need to amend our Docker Compose file to include the Agent configuration. Under `services` add the following;
 
@@ -82,12 +82,9 @@ Step 1/1 : FROM gocd/gocd-server:v20.4.0
 Successfully built 557ebecbe42e
 Successfully tagged mygocdserverimage:latest
 Building gocdagent
-Step 1/3 : FROM gocd/gocd-agent-ubuntu-18.04:v20.4.0
+Step 1/2 : FROM gocd/gocd-agent-ubuntu-18.04:v20.4.0
  ---> d2132955e884
-Step 2/3 : ENV GO_SERVER_URL=http://gocdserver:8153/go
- ---> Using cache
- ---> 7fb682b41d77
-Step 3/3 : ENV AGENT_AUTO_REGISTER_KEY=6271e446-878b-4bb7-9cce-3584dd7b9852
+Step 2/2 : ENV GO_SERVER_URL=http://gocdserver:8153/go
  ---> Using cache
  ---> aa4296d97790
 Successfully built aa4296d97790
