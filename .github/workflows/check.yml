@@ -11,7 +11,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  buildandhtmlproof:
     # The type of runner that the job will run on
     runs-on: self-hosted
 
@@ -24,10 +24,10 @@ jobs:
     - name: install prerequisites
       run: gem install minima jekyll html-proofer
     
-    - name: build
+    - name: jekyll build
       run: bundle exec jekyll build
     
-    - name: proofer
+    - name: html proofer
       run: bundle exec htmlproofer ./_site 
     
 
