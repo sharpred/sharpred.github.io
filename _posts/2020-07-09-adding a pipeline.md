@@ -42,7 +42,7 @@ Your completed screen should look something like this;
 
 ![this screenshot](/images/gocdserver005.png)
 
-Click on the 'save and run this pipeline' button.  You should be presented with this screen
+Click on the 'save and run this pipeline' button.  After a minute or two, you should be presented with this screen
 
 ![this screenshot](/images/gocdserver006.png)
 
@@ -51,6 +51,39 @@ After a minute or two, the yellow progress indicator should change to a green ic
 ![this screenshot](/images/gocdserver007.png)
 
 Congratulations you have successfully completed your first pipeline.
+
+**Before We Go**
+
+We are starting to flesh out our pipeline configuration and it would be good to not have to start over each time we go through an exercise.  Let's take a quick look at how we can save our existing configuration and re-use it next time out.
+
+In a browser, navigate to [your Go Server](http://localhost:8153/go), select `admin` and then `backup` from the navigation menu and then click on the `perform backup` button. Click `confirm` to proceed.  Eventually you should see a screen like the one below;
+
+![this screenshot](/images/gocdserver008.png)
+
+Open a terminal window at the root of your project folder where your Go Server Dockerfile and Docker-compose.yml files are.
+
+run the following command* 
+
+`docker cp $(docker ps | grep mygocdserverimage | awk '{print $1}')://go-working-dir/artifacts/serverBackups . `
+
+ *run `which awk` if you are unsure if you have awk installed.  Awk is installed on most UNIX/Linux distributions and is available via Homebrew and Apt.  Head over to [here](https://www.gnu.org/software/gawk/manual/html_node/Installation.html) for everything else.
+
+This will download all the backups from your running instance of the go server to your local file system into a folder called serverBackups.
+
+Run the following commands (substitute backup_20200819--142909 with the folder name relevant for the backup you want to copy)
+
+```
+unzip serverBackups/backup_20200819-142909/config-dir.zip -d ./server/config
+unzip serverBackups/backup_20200819-142909/db.zip -d ./server/config/
+```
+
+This will copy all the relevant files from your running server instance and allow you to reuse them in a new Docker image.
+
+If you look at the Dockerfile in your server config directory you will see that this config directory gets copied to your server container image on build.  You will also see that the script `copykeystore.sh` gets added to the directory `/docker-entrypoint.d` meaning that
+
+Run `docker-compose down` to close down your running Go Server.
+
+Run `docker-compose up --build -d` to create and run a new Docker image with your saved config. navigate to [your Go Server](http://localhost:8153/go) again and you will see that the config has been preserved as is the history of your pipeline.
 
 **Next Time**
 
