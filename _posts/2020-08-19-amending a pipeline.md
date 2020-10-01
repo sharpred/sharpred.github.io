@@ -85,5 +85,10 @@ it('This should pass', () => {
 })
 ```
 
-Commit your changes and push them to Github.
+Commit your changes and push them to Github. After a couple of minutes, your changes should trigger another pipeline job and this time it should run successfully.
 
+Congratulations! you have just completed your first pipeline amendment.  Remember to back up your Go Server and create a new Docker image with the resultant backup. Refer back to [here](/2020/07/09/adding-a-pipeline.html) if you need a refresher on how to do this.
+
+Next Time
+
+Next time we will look at deploying our application from a Go Server pipeline.
