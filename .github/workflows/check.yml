@@ -28,7 +28,7 @@ jobs:
       run: bundle exec jekyll build
     
     - name: html proofer
-      run: bundle exec htmlproofer ./_site 
+      run: bundle exec htmlproofer --url-ignore "http://localhost:8153/go" ./_site 
     
 
     
