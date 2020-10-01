@@ -1,9 +1,9 @@
 title: Sharpred
 email: paul@sharpred.com
 description: > # this means to ignore newlines until "baseurl:"
-  Personal site for Paul Ryan.
+  Paul Ryan, Mobile App Developer
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://example.com" # the base hostname & protocol for your site
+url: "https://sharpred.com" # the base hostname & protocol for your site
 twitter_username: sharpred
 github_username:  sharpred
 
@@ -12,5 +12,6 @@ markdown: kramdown
 theme: minima
 # from https://jekyllrb.com/docs/continuous-integration/
 exclude: [vendor, gcp, google575963d4adf7f984.html]
-# from http://jmcglone.com/guides/github-pages/
-#permalink: /blog/:year/:month/:day/:title
+
+# Google services
+google_analytics: UA-179410290-1
